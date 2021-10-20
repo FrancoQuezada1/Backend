@@ -1,7 +1,8 @@
-const sequelize = require("../database/db");
+module.exports = (connection) => {
 
-module.exports = (connection,sequelize) => {
-    return connection.define("name",{
+    const sequelize = require('sequelize');
+
+    return connection.define("Restaurant",{
         id: {
             type: sequelize.INTEGER,
             primaryKey: true,

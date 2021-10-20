@@ -1,23 +1,24 @@
 const { config } = require("../config/config.js");
-const InitialModels = require("../models")
+const InitialModels = require("../models/index")
 
 const Sequelize = require("sequelize");
 
-const connection = new Sequelize(config.database_name , config.database_password, config.database_user , {
+const connection = new Sequelize(config.database_name, config.database_user, config.database_password, {
     host: 'localhost',
     dialect: 'mysql'
 
 })
 
-const { Name , Menu } =(connection)
+const { Restaurant, Plate, Category } = InitialModels(connection)
 
-connection.sync({ force: false }).then(() => {
+connection.sync({ force: true }).then(() => {
     console.log("Ando ready pa");
 }).catch(e => {
     console.log(e);
 });
 
 module.exports = {
-    Menu,
-    Name
+    Plate,
+    Restaurant,
+    Category
 }

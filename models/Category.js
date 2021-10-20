@@ -1,13 +1,14 @@
-const sequelize = require("../database/db");
+module.exports = (connection) => {
+    
+    const sequelize = require('sequelize');
 
-module.exports = (connection,sequelize) => {
-    return connection.define("name",{
+    return connection.define("Categorys",{
         id: {
             type: sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         name:sequelize.STRING,
-        nacionality: sequelize.STRING
+        nacionality:sequelize.STRING
     });
 };

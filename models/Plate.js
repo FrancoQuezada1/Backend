@@ -1,13 +1,14 @@
-const sequelize = require("../database/db");
+module.exports = (connection) => {
 
-module.exports = (connection,sequelize) => {
-    return connection.define("menu",{
+    const sequelize = require('sequelize');
+
+    return connection.define("Plate",{
         id: {
             type: sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-         name:Sequelize.INTEGER,
+         name:sequelize.INTEGER,
          category_id:sequelize.INTEGER
 
 
